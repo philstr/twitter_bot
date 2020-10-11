@@ -20,6 +20,7 @@ def get_twitter_client(credentials):
     return Twitter(auth=OAuth(credentials["ACCESS_TOKEN"], credentials["ACCESS_TOKEN_SECRET"], credentials["API_KEY"], credentials["API_SECRET_KEY"]))
 
 def tweet(client, tweet):
+    # TODO: Add some error handling here.
     client.statuses.update(status=tweet)
 
 def seems_tweetable(contents):
