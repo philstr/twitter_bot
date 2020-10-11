@@ -55,4 +55,5 @@ if __name__ == '__main__':
         else:
             print_with_timestamp("Could not get next tweet.")
         # Sleep for 30 min. 
+        print_with_timestamp("Going to sleep.")
         time.sleep(1800)
