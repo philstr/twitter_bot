@@ -42,11 +42,16 @@ def get_next_tweet():
     return ["", False]
 
 if __name__ == '__main__':
-    client = get_twitter_client(load_credentials("./API_INFO"))
-    print_with_timestamp("Waking up!")
-    contents, success = get_next_tweet()
-    if success:
-        print_with_timestamp("Tweeting: " + contents)
-        tweet(client, contents)
-    else:
-        print_with_timestamp("Could not get next tweet.")
+    print_with_timestamp("Starting Twitter bot program.")
+    while True:
+        print_with_timestamp("Waking up!")
+        # Reinitializing the client each time in case it expires or anything like that.
+        client = get_twitter_client(load_credentials("./API_INFO"))
+        contents, success = get_next_tweet()
+        if success:
+            print_with_timestamp("Tweeting: " + contents)
+            tweet(client, contents)
+        else:
+            print_with_timestamp("Could not get next tweet.")
+        # Sleep for 30 min. 
+        time.sleep(1800)
