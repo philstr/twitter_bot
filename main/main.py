@@ -54,6 +54,6 @@ if __name__ == '__main__':
             tweet(client, contents)
         else:
             print_with_timestamp("Could not get next tweet.")
-        # Sleep for 30 min. 
+        # Sleep for 10 min. 
         print_with_timestamp("Going to sleep.")
-        time.sleep(1800)
+        time.sleep(600)

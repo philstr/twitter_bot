@@ -1,4 +1,5 @@
-.venv
+main/.venv
+bike_watcher/.bike_watcher_venv
 API_INFO
 .vscode
 *~
