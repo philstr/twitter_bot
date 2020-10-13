@@ -51,7 +51,7 @@ if __name__ == '__main__':
         contents, success = get_next_tweet()
         if success:
             print_with_timestamp("Tweeting: " + contents)
-            # tweet(client, contents)
+            tweet(client, contents)
         else:
             print_with_timestamp("Could not get next tweet.")
         # Sleep for 30 min. 

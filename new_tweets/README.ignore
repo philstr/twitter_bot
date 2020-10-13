@@ -1,3 +1,0 @@
-The contents of this directory will be read each time the Twitter bot wakes up to tweet.
-Any file without "ignore" in the name will be considered for tweeting.
-If the contents of a tweet file seem valid, the bot will remove the file and attempt to tweet the contents.
