@@ -3,7 +3,9 @@ import datetime
 import time
 import uuid
 
-SEARCH_KEYS = ["nitto", "velo orange"]
+BIKE_SEARCH_KEYS = ["all city"]
+BIKE_PART_SEARCH_KEYS = ["nitto", "velo orange"]
+LOCATION = "boston"
 SEEN_LISTINGS_SIZE = 100
 TWEET_FILE_PATH = "../main/new_tweets/"
 
@@ -13,8 +15,10 @@ def print_with_timestamp(s):
 
 def get_listings():
     listings = []
-    for key in SEARCH_KEYS:
-        listings += craigslist.get_ads_sorted_by_date("boston", "bip", key)
+    for key in BIKE_SEARCH_KEYS:
+        listings += craigslist.get_ads_sorted_by_date(LOCATION, "bia", key)
+    for key in BIKE_PART_SEARCH_KEYS:
+        listings += craigslist.get_ads_sorted_by_date(LOCATION, "bip", key)
     return listings
 
 def already_seen(listing, seen_listings):

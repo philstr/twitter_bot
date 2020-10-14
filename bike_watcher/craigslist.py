@@ -42,7 +42,7 @@ class SeenSet:
 
 
 def get_ads(location_code, category_code, query=None, postal=None, distance=None):
-    query_string = "?query="+query.replace(" ", "+") if query is not None else ""
+    query_string = "?query=\""+query.replace(" ", "+")+"\"" if query is not None else ""
     url_base = "https://" + location_code + \
         ".craigslist.org/search/" + category_code + query_string
     return get_result_list(url_base)
