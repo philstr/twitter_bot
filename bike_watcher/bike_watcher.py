@@ -1,11 +1,10 @@
 import craigslist
+import csv
 import datetime
 import time
 import uuid
 
-BIKE_SEARCH_KEYS = ["all city"]
-BIKE_PART_SEARCH_KEYS = ["nitto", "velo orange"]
-LOCATION = "boston"
+QUERIES_FILE = "./QUERIES"
 SEEN_LISTINGS_SIZE = 100
 TWEET_FILE_PATH = "../main/new_tweets/"
 
@@ -15,10 +14,15 @@ def print_with_timestamp(s):
 
 def get_listings():
     listings = []
-    for key in BIKE_SEARCH_KEYS:
-        listings += craigslist.get_ads_sorted_by_date(LOCATION, "bia", key)
-    for key in BIKE_PART_SEARCH_KEYS:
-        listings += craigslist.get_ads_sorted_by_date(LOCATION, "bip", key)
+    with open(QUERIES_FILE, newline='') as fp:
+        reader = csv.reader(fp)
+        for row in reader:
+            if len(row) < 3:
+                continue
+            # Lines in the queries csv file should be of the format
+            # <location>,<category code>,<search term>
+            # e.g., boston,bip,nitto
+            listings += craigslist.get_ads_sorted_by_date(row[0], row[1], row[2])
     return listings
 
 def already_seen(listing, seen_listings):
