@@ -4,7 +4,7 @@ import time
 import uuid
 
 BIKE_SEARCH_KEYS = ["all city"]
-BIKE_PART_SEARCH_KEYS = ["nitto", "velo orange"]
+BIKE_PART_SEARCH_KEYS = ["nitto", "velo orange", "sim works"]
 LOCATION = "boston"
 SEEN_LISTINGS_SIZE = 100
 TWEET_FILE_PATH = "../main/new_tweets/"
